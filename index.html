@@ -1,0 +1,160 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfólio Pessoal - Simone Gonçalves</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*fundo e estilo da fonte*/
+        body {
+            background-image: url('png.galaxy.jpg');
+            background-size: cover; 
+            background-position: center;
+            font-family: "Bitcount Prop Single", system-ui;
+            min-height: 100vh;
+        }
+
+        /* Barra de navegação */
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: fixed;  
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 20;
+        }
+
+        /*aparencia dos botões */
+        button {
+            background-color: #0b0036;        
+            color: #aebfff;                    
+            border: 2px solid #00bfff;      
+            border-radius: 8px;             
+            padding: 12px 24px;             
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00bfff, 
+                        0 0 20px #00bfff;
+            transition: all 0.3s ease;      
+        }
+
+        button:hover {
+            box-shadow: 0 0 15px #00bfff, 
+                        0 0 30px #00bfff;
+            transform: scale(1.05);         
+        }
+
+        /* Faixa central azul fixa */
+        .conteudo-principal {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 15%;           
+            width: 70%;          
+            background-color: #0b0036;
+            opacity: 0.97;
+            padding: 100px 40px 40px; 
+            color: #fff;
+            overflow-y: auto;  
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            z-index: 10;
+        }
+
+        #conteudo {
+            font-size: 20px;
+            text-align: center;
+            line-height: 2; 
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        /*personalizaçao das caixas de texto*/
+        input, textarea {
+            color:hsl(227, 100%, 86%);
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background-color: #1f338b;
+            box-shadow: 0 0 5px #00bfff, 
+                        0 0 10px #00bfff;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background: black;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    /* Navegação fixa no topo */
+    <nav>
+        <button onclick="mostrar('sobre')">Sobre mim</button>
+        <button onclick="mostrar('formacao')">Formação</button>
+        <button onclick="mostrar('portfolio')">Portfólio</button>
+        <button onclick="mostrar('contato')">Contato</button>
+    </nav>
+
+    <div class="conteudo-principal">
+        <div id="conteudo">Olá, eu sou Simone Gonçalves.<br> Sou estudante de Engenharia de Software e criei este portfólio para compartilhar um pouco sobre minha trajetória,<br> meus interesses e alguns projetos que desenvolvi ao longo da faculdade.
+           
+        </div>
+    </div>
+
+    <script>
+        function mostrar(secao) {
+            let conteudo = document.getElementById('conteudo');
+
+            if (secao === 'sobre') {
+                conteudo.innerHTML = "<h2>Sobre mim</h2><p>Busco sempre aprender e colocar em prática<br> meus conhecimentos em TI e programação.<br> Tenho facilidade em aprender coisas novas, gosto de desafios e busco sempre evoluir tanto pessoalmente quanto profissionalmente.<br> Atualmente curso Engenharia de Software na Uninter, onde estou desenvolvendo habilidades em desenvolvimento web. </p>";
+            } 
+            else if (secao === 'formacao') {
+                conteudo.innerHTML = "<h2>Formação</h2><p>📚Cursando Ensino Superior em Engenharia de Software. <br> 🖥Cursos técnicos completos em administração e informática. <br>🌎 Idiomas: Português (nativo), Inglês (intermediário). </p>";
+            } 
+            else if (secao === 'portfolio') {
+                conteudo.innerHTML = '<h2>Portfólio</h2><p>Aqui estão alguns dos meus trabalhos: <br><a href="Trabalho LPA Simone 2.pdf" target="_blank">trabalho</a><br><a href="site.html" target="_blank">site</a></p>';
+            } 
+           else if (secao === 'contato') {
+                conteudo.innerHTML = `
+                <h2>Contato</h2>
+                <p>Email: <strong>simonegpinh@gmail.com</strong></p>
+                  <form>
+                        <input type="text" placeholder="Nome: " required>
+                        <input type="email" placeholder="Email: " required>
+                        <textarea placeholder="Digite sua mensagem..." required></textarea>
+                        <input type="submit" value="Enviar">
+                    </form>
+             `;
+            }
+
+        }
+    </script>
+</body>
+</html>
